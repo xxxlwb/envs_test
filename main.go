@@ -18,10 +18,10 @@ func main() {
 	userController := &controllers.UserController{}
 
 	// 用户相关路由
-	userRoutes := r.Group("/api/v1/users")
+	userRoutes := r.Group("/api/users")
 	{
-		userRoutes.POST("", userController.CreateUser)      // 创建用户
-		userRoutes.GET("", userController.GetUsers)         // 获取所有用户
+		userRoutes.POST("/", userController.CreateUser)      // 创建用户
+		userRoutes.GET("/", userController.GetUsers)         // 获取所有用户
 		userRoutes.GET("/:id", userController.GetUser)       // 获取单个用户
 		userRoutes.PUT("/:id", userController.UpdateUser)    // 更新用户
 		userRoutes.DELETE("/:id", userController.DeleteUser) // 删除用户
